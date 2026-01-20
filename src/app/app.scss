@@ -1,0 +1,21 @@
+/* App Component Styles */
+
+/* Flex-grow: 1 pushes the footer to the bottom 
+  if the content is short, and expands naturally if content is long.
+*/
+main {
+  flex-grow: 1;
+  width: 100%;
+  display: block;
+  position: relative;
+  z-index: 1; 
+}
+
+/* Ensure Footer is visible and on top of standard content layers if needed */
+app-footer {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  display: block;
+  background-color: var(--gray-900, #1a1a1a); /* Fallback color */
+}

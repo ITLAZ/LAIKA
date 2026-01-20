@@ -1,1 +1,49 @@
-<p>navbar works!</p>
+<nav class="navbar">
+    
+    <div class="logo">
+        <a routerLink="/" (click)="closeMenu()">
+      <img 
+        ngSrc="/images/Logo.png" 
+        alt="Laika Logo" 
+        height="55" 
+        width="60" 
+        priority
+        />
+        <img 
+        ngSrc="/images/Typo.png" 
+        alt="Laika Text Logo" 
+        height="30" 
+        width="80" 
+        priority
+        />
+    </a>
+</div>
+
+  <ul class="nav-links" [class.open]="isMenuOpen()">
+    @for (item of menuItems; track item.path) {
+        <li>
+            <a 
+            [routerLink]="item.path" 
+            routerLinkActive="active" 
+            (click)="closeMenu()">
+            {{ item.label }}
+        </a>
+    </li>
+}
+</ul>
+<button 
+  class="hamburger" 
+  (click)="toggleMenu()" 
+  [class.active]="isMenuOpen()"
+  aria-label="Toggle menu"
+  type="button">
+  <span class="bar"></span>
+  <span class="bar"></span>
+  <span class="bar"></span>
+</button>
+
+</nav>
+
+@if (isMenuOpen()) {
+    <div class="backdrop" (click)="closeMenu()"></div>
+}
