@@ -13,9 +13,10 @@ export class Navbar {
 
   menuItems = [
     { label: 'About Us', path: '/about-us' },
-    { label: 'Adopt', path: '/adopt' },
     { label: 'Donations', path: '/donations' },
     { label: 'Volunteer', path: '/volunteer' },
+    { label: 'Adopt', path: '/adopt' },
+    { label: 'Contact Us', path: '#contact-us' },
   ];
 
   toggleMenu() {

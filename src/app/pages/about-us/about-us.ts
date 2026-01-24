@@ -1,42 +1,65 @@
 import { Component, ElementRef, OnDestroy, afterNextRender, viewChild } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgOptimizedImage } from '@angular/common'; // Added NgOptimizedImage
+import { RouterLink } from '@angular/router'; // Added RouterLink for the cards
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 
 @Component({
   selector: 'app-about-us',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, NgOptimizedImage, RouterLink],
   templateUrl: './about-us.html',
   styleUrl: './about-us.scss',
 })
 export class AboutUs implements OnDestroy {
+  // We keep this reference for the Navbar fade-out animation
   sectionTwo = viewChild<ElementRef>('sectionTwo');
-  private ctx: gsap.Context | undefined; // Reference for GSAP cleanup
+  private ctx: gsap.Context | undefined;
+
+  // Data for the full-width alternating cards
+  cards = [
+    {
+      title: 'Donations',
+      description: 'Your generous contributions help us provide food, shelter, and medical care.',
+      image: 'https://placehold.co/800x600/0D6BA5/white?text=Donations', // Replace with /images/donations.jpg
+      link: '/donations',
+      linkText: 'Support Us'
+    },
+    {
+      title: 'Volunteer',
+      description: 'Join our team of dedicated volunteers. Your time can make a world of difference.',
+      image: 'https://placehold.co/800x600/17A67D/white?text=Volunteer', // Replace with /images/volunteer.jpg
+      link: '/volunteer',
+      linkText: 'Get Involved'
+    },
+    {
+      title: 'Adoptions',
+      description: 'Find your new best friend. We have dozens of loving animals waiting for a forever home.',
+      image: 'https://placehold.co/800x600/F27040/white?text=Adoptions', // Replace with /images/adoptions.jpg
+      link: '/adopt',
+      linkText: 'Meet Them'
+    },
+    
+  ];
 
   constructor() {
     gsap.registerPlugin(ScrollTrigger);
 
     afterNextRender(() => {
-      // Create a GSAP Context strictly for this component's lifecycle
       this.ctx = gsap.context(() => {
         const section2El = this.sectionTwo()?.nativeElement;
-        // Target the navbar globally since it lives in the app shell
         const navbar = document.querySelector('app-navbar') as HTMLElement;
 
         if (section2El && navbar) {
-          // Ensure navbar starts fully visible
           gsap.set(navbar, { opacity: 1, pointerEvents: 'auto' });
 
           gsap.to(navbar, {
             scrollTrigger: {
               trigger: section2El,
-              // Start fading OUT when the top of Section 2 hits the bottom of the viewport
               start: 'top bottom', 
-              // Finish fading OUT when the top of Section 2 hits the center of the viewport
               end: 'top center',
-              scrub: true, // Smoothly animate with scroll
-              markers: false, // Set true to debug trigger lines
+              scrub: true, 
+              markers: false, 
             },
             opacity: 0,
             pointerEvents: 'none',
@@ -48,8 +71,6 @@ export class AboutUs implements OnDestroy {
   }
 
   ngOnDestroy() {
-    // CRITICAL: This reverts the navbar to its original state (opacity: 1)
-    // and kills the ScrollTrigger when the user leaves this page.
     this.ctx?.revert();
   }
 }
