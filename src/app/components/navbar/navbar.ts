@@ -16,7 +16,7 @@ export class Navbar {
     { label: 'Donations', path: '/donations' },
     { label: 'Volunteer', path: '/volunteer' },
     { label: 'Adopt', path: '/adopt' },
-    { label: 'Contact Us', path: '#contact-us' },
+    { label: 'Contact Us', path: null, action: 'contact' },
   ];
 
   toggleMenu() {
@@ -25,5 +25,19 @@ export class Navbar {
 
   closeMenu() {
     this.isMenuOpen.set(false);
+  }
+
+  handleItemClick(item: any) {
+    this.closeMenu();
+    if (item.action === 'contact') {
+      this.scrollToContact();
+    }
+  }
+
+  scrollToContact() {
+    const contactSection = document.getElementById('contact-us');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
   }
 }

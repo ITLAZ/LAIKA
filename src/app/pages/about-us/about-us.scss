@@ -1,7 +1,7 @@
 /* --- Global Layout --- */
 .about-container {
   width: 100%;
-  overflow-x: hidden;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
 }
@@ -9,7 +9,7 @@
 /* --- 1. Hero Section --- */
 .hero-section {
   position: relative;
-  height: 65vh; /* Takes up most of the initial screen */
+  height: 65vh;
   width: 100%;
   overflow: hidden;
   display: flex;
@@ -22,13 +22,13 @@
   }
 
   .hero-overlay {
-    background: rgba(0, 0, 0, 0.4); /* Darkens image for text readability */
+    background: rgba(0, 0, 0, 0.4);
     padding: 2rem 4rem;
     border-radius: 1rem;
     backdrop-filter: blur(4px);
     
     h1 {
-      color: var(--white, #fff);
+      color: #fff;
       margin: 0;
       text-transform: uppercase;
       letter-spacing: 0.1em;
@@ -79,7 +79,7 @@
 /* --- 3. Mission & Vision --- */
 .section-text {
   padding: 6rem 2rem;
-  background-color: var(--gray-900); /* Dark background for contrast */
+  background-color: var(--gray-900);
   color: var(--white);
   text-align: center;
 
@@ -109,41 +109,75 @@
   }
 }
 
-/* --- 4. Full Width Cards (Alternating) --- */
+/* --- 4. Full Width Cards (Stacked Deck) --- */
 .cards-container {
   display: flex;
   flex-direction: column;
-  
+  padding-bottom: 0; /* No padding needed due to tail fix */
+  background-color: var(--gray-900); /* Seamless match with section above */
 }
 
 .full-width-card {
   display: flex;
   width: 100%;
-  min-height: 60vh; /* Each card is substantial in size */
-  border-radius: 2rem 2rem 0 0;
+  min-height: 80vh; 
+  position: relative; /* Stacking context */
   
-  /* Default: Image Left, Content Right */
+  /* ROUNDED TOP CORNERS ONLY */
+  border-radius: 3rem 3rem 0 0;
+  
+  /* Transition for "Slide Up" */
+  transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+  
+  /* Layout: Image Left, Content Right */
   flex-direction: row;
 
-  /* Alternating State: Image Right, Content Left */
-  &.reverse {
-    flex-direction: row-reverse;
-    background-color: var(--red);
-    
-    .card-content {
-      background-color: var(--blue);
-      border-radius: 2rem 0 0 0;
-    }
-
-    .card-image {
-      border-radius: 0 2rem 0 0;
-    }
+  /* Overlap: Pull up to cover bottom of previous card */
+  margin-top: -150px; 
+  
+  &:first-child {
+    margin-top: 0;
   }
 
-  /* Mobile: Always Stack Vertical */
+  /* Alternating Layout */
+  &:nth-child(even) {
+    flex-direction: row-reverse;
+  }
+
+  /* THE TAIL FIX:
+     Creates a solid block of color below the card.
+     This ensures that when a card slides up (especially the last one),
+     there is no white/empty space revealed underneath it.
+  */
+  &::after {
+    content: '';
+    position: absolute;
+    top: 99%; 
+    left: 0;
+    right: 0;
+    height: 60vh; /* Tall enough to cover the slide distance */
+    background-color: inherit; /* Inherits the card's specific variable color */
+    z-index: 1; 
+    pointer-events: none;
+  }
+
+  &:hover {
+    /* Slide up slightly. Z-index is NOT changed, so it stays behind the next card */
+    transform: translateY(-80px);
+  }
+
+  /* Mobile Responsive */
   @media (max-width: 768px) {
-    flex-direction: column !important; /* Force stack on mobile */
+    flex-direction: column !important;
     min-height: auto;
+    margin-top: -50px;
+    border-radius: 2rem 2rem 0 0;
+    
+    &:first-child { margin-top: 0; }
+    
+    &:hover {
+      transform: translateY(-20px);
+    }
   }
 }
 
@@ -151,9 +185,8 @@
   flex: 1;
   position: relative;
   min-height: 400px;
-  border-radius: 2rem 0 0 0;
-  overflow: hidden;
-
+  /* Ensure image respects the rounded top corners */
+  overflow: hidden; 
 
   img {
     width: 100%;
@@ -170,42 +203,51 @@
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  background-color: var(--green);
-  border-radius: 0 2rem 0 0;
+  background: transparent; 
+  color: #ffffff;
+  position: relative; 
+  z-index: 2; /* Sits above the ::after tail */
 
   @media (max-width: 768px) {
-    padding: 3rem 2rem;
+    padding: 4rem 2rem 6rem;
     align-items: center;
     text-align: center;
   }
 
   h3 {
-    font-size: 3rem;
-    color: var(--gray-900);
+    font-size: 4rem;
+    color: #ffffff;
     margin-bottom: 1.5rem;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.1);
   }
 
   p {
-    font-size: 1.25rem;
-    line-height: 1.6;
-    margin-bottom: 2rem;
-    color: #555;
-    max-width: 500px;
+    font-size: 1.5rem;
+    line-height: 1.5;
+    margin-bottom: 3rem;
+    color: rgba(255, 255, 255, 0.95);
+    max-width: 600px;
   }
 
   .btn-text {
-    font-size: 1.1rem;
+    font-size: 1.25rem;
     font-weight: 700;
-    color: var(--orange);
+    color: #ffffff;
     text-decoration: none;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
-    border-bottom: 2px solid transparent;
-    transition: all 0.2s;
-
+    letter-spacing: 0.1em;
+    padding: 1rem 2.5rem;
+    border: 2px solid #ffffff;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(4px);
+    border-radius: 99px;
+    transition: all 0.3s ease;
+    
     &:hover {
-      border-bottom-color: var(--orange);
-      transform: translateX(5px);
+      background-color: #ffffff;
+      color: var(--gray-900);
+      transform: scale(1.05);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
     }
   }
 }

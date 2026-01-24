@@ -2,7 +2,7 @@
   
   <section class="hero-section">
     <div class="hero-overlay">
-      <h1>Sobre Laika</h1>
+      <h1>We Are Laika</h1>
     </div>
     <img ngSrc="https://placehold.co/1920x1080/gray/white?text=Hero+Image" fill priority alt="Laika Hero" class="hero-bg" />
   </section>
@@ -17,8 +17,7 @@
         <p>
           Laika is more than just a shelter; it is a community dedicated to the well-being of animals. 
           Founded with the belief that every life is precious, we work tirelessly to rescue, rehabilitate, 
-          and rehome stray and abandoned pets. Our facility provides a safe haven where animals receive 
-          medical attention, nourishment, and love until they find their forever families.
+          and rehome stray and abandoned pets.
         </p>
       </div>
     </div>
@@ -28,31 +27,29 @@
     <div class="text-container">
       <div class="mv-block">
         <h3>Our Mission</h3>
-        <p>
-          To end animal homelessness and suffering through rescue, rehabilitation, and education. 
-          We strive to create a world where every companion animal has a safe and loving home.
-        </p>
+        <p>To end animal homelessness and suffering through rescue, rehabilitation, and education.</p>
       </div>
       <div class="mv-block">
         <h3>Our Vision</h3>
-        <p>
-          A society where compassion for animals is a core value, and where shelters are no longer needed 
-          because every pet is cherished and responsible guardianship is the norm.
-        </p>
+        <p>A society where compassion for animals is a core value and responsible guardianship is the norm.</p>
       </div>
     </div>
   </section>
 
   <section class="cards-container">
     @for (card of cards; track card.title; let i = $index) {
-      <div class="full-width-card" [class.reverse]="i % 2 !== 0">
+      <div 
+        class="full-width-card" 
+        [style.background-color]="card.color"
+        [style.z-index]="i">
+        
         <div class="card-image">
           <img [ngSrc]="card.image" width="800" height="600" [alt]="card.title" />
         </div>
         <div class="card-content">
           <h3>{{ card.title }}</h3>
           <p>{{ card.description }}</p>
-          <a [routerLink]="card.link" class="btn-text">{{ card.linkText }} &rarr;</a>
+          <a [routerLink]="card.link" class="btn-text">{{ card.linkText }} →</a>
         </div>
       </div>
     }

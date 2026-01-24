@@ -1,6 +1,6 @@
 import { Component, ElementRef, OnDestroy, afterNextRender, viewChild } from '@angular/core';
-import { CommonModule, NgOptimizedImage } from '@angular/common'; // Added NgOptimizedImage
-import { RouterLink } from '@angular/router'; // Added RouterLink for the cards
+import { CommonModule, NgOptimizedImage } from '@angular/common';
+import { RouterLink } from '@angular/router';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 
@@ -12,34 +12,34 @@ import ScrollTrigger from 'gsap/ScrollTrigger';
   styleUrl: './about-us.scss',
 })
 export class AboutUs implements OnDestroy {
-  // We keep this reference for the Navbar fade-out animation
   sectionTwo = viewChild<ElementRef>('sectionTwo');
   private ctx: gsap.Context | undefined;
 
-  // Data for the full-width alternating cards
   cards = [
     {
       title: 'Donations',
       description: 'Your generous contributions help us provide food, shelter, and medical care.',
-      image: 'https://placehold.co/800x600/0D6BA5/white?text=Donations', // Replace with /images/donations.jpg
+      image: 'https://placehold.co/1200x800/17A67D/white?text=Donations',
       link: '/donations',
-      linkText: 'Support Us'
+      linkText: 'Support Us',
+      color: 'var(--green)' 
     },
     {
       title: 'Volunteer',
       description: 'Join our team of dedicated volunteers. Your time can make a world of difference.',
-      image: 'https://placehold.co/800x600/17A67D/white?text=Volunteer', // Replace with /images/volunteer.jpg
+      image: 'https://placehold.co/1200x800/0D6BA5/white?text=Volunteer',
       link: '/volunteer',
-      linkText: 'Get Involved'
+      linkText: 'Get Involved',
+      color: 'var(--blue)' 
     },
     {
       title: 'Adoptions',
       description: 'Find your new best friend. We have dozens of loving animals waiting for a forever home.',
-      image: 'https://placehold.co/800x600/F27040/white?text=Adoptions', // Replace with /images/adoptions.jpg
+      image: 'https://placehold.co/1200x800/F22148/white?text=Adoptions',
       link: '/adopt',
-      linkText: 'Meet Them'
+      linkText: 'Meet Them',
+      color: 'var(--red)' 
     },
-    
   ];
 
   constructor() {
