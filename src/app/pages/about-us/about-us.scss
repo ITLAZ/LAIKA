@@ -56,10 +56,15 @@
     }
   }
 
-  .split-image img {
+  /* WRAPPER FIX */
+  .carousel-wrapper {
     width: 100%;
-    height: auto;
+    /* This defines the height based on width (Square). 
+       The child <app-carrusel> will fill this height. */
+    aspect-ratio: 1 / 1; 
+    position: relative;
     border-radius: 1.5rem;
+    overflow: hidden;
     box-shadow: 0 20px 40px rgba(0,0,0,0.1);
   }
 

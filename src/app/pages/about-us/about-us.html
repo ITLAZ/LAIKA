@@ -9,9 +9,18 @@
 
   <section class="section-split about-laika">
     <div class="split-container">
+      
       <div class="split-image">
-        <img ngSrc="https://placehold.co/800x800/e0e0e0/333?text=About+Image" width="800" height="800" alt="About Laika" />
+        <div class="carousel-wrapper">
+          <app-carrusel 
+            [images]="aboutLaikaImages" 
+            [visibleItems]="1" 
+            height="100%" 
+            [autoPlay]="true">
+          </app-carrusel>
+        </div>
       </div>
+
       <div class="split-text">
         <h2>About Laika</h2>
         <p>

@@ -4,10 +4,13 @@ import { RouterLink } from '@angular/router';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 
+// Import the Carrusel Component
+import { Carrusel } from '../../components/carrusel/carrusel'; 
+
 @Component({
   selector: 'app-about-us',
   standalone: true,
-  imports: [CommonModule, NgOptimizedImage, RouterLink],
+  imports: [CommonModule, NgOptimizedImage, RouterLink, Carrusel], // Add to imports
   templateUrl: './about-us.html',
   styleUrl: './about-us.scss',
 })
@@ -15,6 +18,14 @@ export class AboutUs implements OnDestroy {
   sectionTwo = viewChild<ElementRef>('sectionTwo');
   private ctx: gsap.Context | undefined;
 
+  // Images for the About Laika section
+  aboutLaikaImages = [
+    'https://placehold.co/800x800/e0e0e0/333?text=Laika+1',
+    'https://placehold.co/800x800/e0e0e0/333?text=Laika+2',
+    'https://placehold.co/800x800/e0e0e0/333?text=Laika+3'
+  ];
+
+  // (Existing cards array and GSAP logic remain unchanged below...)
   cards = [
     {
       title: 'Donations',

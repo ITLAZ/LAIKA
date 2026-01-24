@@ -1,0 +1,93 @@
+:host {
+  display: block;
+  width: 100%;
+  height: 100%; /* <--- CRITICAL FIX */
+}
+
+.carrusel-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1.5rem;
+  width: 100%;
+  /* Ensure this inherits the host's height, which inherits the wrapper's height */
+  height: 100% !important; 
+  background-color: #f0f0f0;
+}
+
+.carrusel-track {
+  display: flex;
+  height: 100%;
+  transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+  will-change: transform;
+}
+
+.carrusel-item {
+  position: relative; /* Required for NgOptimizedImage fill mode */
+  flex-shrink: 0;
+  height: 100%;
+  
+  .slide-img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+/* Controls */
+.control {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.3);
+  color: white;
+  border: none;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  z-index: 10;
+  backdrop-filter: blur(4px);
+
+  &:hover {
+    background: var(--orange, #F27040);
+    transform: translateY(-50%) scale(1.1);
+  }
+
+  &.prev { left: 1rem; }
+  &.next { right: 1rem; }
+}
+
+/* Indicators */
+.indicators {
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.5rem;
+  z-index: 10;
+
+  .dot {
+    width: 0.75rem;
+    height: 0.75rem;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    padding: 0;
+    transition: all 0.3s;
+
+    &.active {
+      background: var(--orange, #F27040);
+      transform: scale(1.2);
+    }
+    
+    &:hover {
+      background: rgba(255, 255, 255, 0.9);
+    }
+  }
+}

@@ -1,1 +1,45 @@
-<p>carrusel works!</p>
+<div 
+  class="carrusel-container" 
+  [style.height]="height()"
+  (mouseenter)="stopAutoPlay()" 
+  (mouseleave)="autoPlay() ? startAutoPlay() : null">
+  
+  <div 
+    class="carrusel-track"
+    [style.transform]="'translateX(-' + (currentIndex() * (100 / visibleItems())) + '%)'">
+    
+    @for (img of images(); track $index) {
+      <div 
+        class="carrusel-item" 
+        [style.flex-basis]="(100 / visibleItems()) + '%'">
+        <img 
+          [ngSrc]="img" 
+          fill 
+          [priority]="$index < visibleItems()" 
+          alt="Carousel Image"
+          class="slide-img" 
+        />
+      </div>
+    }
+  </div>
+
+  <button class="control prev" (click)="prev()" aria-label="Previous Slide">
+    <i class="fa-solid fa-chevron-left"></i>
+  </button>
+  <button class="control next" (click)="next()" aria-label="Next Slide">
+    <i class="fa-solid fa-chevron-right"></i>
+  </button>
+
+  <div class="indicators">
+    @for (img of images(); track $index) {
+      @if ($index <= maxIndex()) {
+        <button 
+          class="dot" 
+          [class.active]="$index === currentIndex()" 
+          (click)="goTo($index)"
+          [ariaLabel]="'Go to slide ' + ($index + 1)">
+        </button>
+      }
+    }
+  </div>
+</div>
