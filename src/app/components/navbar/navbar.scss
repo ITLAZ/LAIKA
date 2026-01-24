@@ -1,10 +1,4 @@
 :host {
-  /* Design Tokens */
-  --bright-blue: oklch(51.01% 0.274 263.83);
-  --gray-900: oklch(19.37% 0.006 300.98);
-  --gray-700: oklch(36.98% 0.014 302.71);
-  --white: #ffffff;
-  
   --nav-height: 4rem;
   --nav-radius: 99px;
   
@@ -29,13 +23,16 @@
   height: var(--nav-height);
   padding: 0 2rem;
   
-  background-color: color-mix(in srgb, var(--white) 90%, transparent);
+  background-image: linear-gradient(
+    to right,
+    var(--white) 8%,
+    var(--orange) 100%
+  );
+
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  
-  border: 1px solid color-mix(in srgb, var(--gray-900) 5%, transparent);
   border-radius: var(--nav-radius);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 /* --- 1. Logo (Right) --- */
@@ -59,7 +56,7 @@
   }
 }
 
-/* --- 2. Navigation Links (Left) --- */
+/* --- 2. Navigation Links --- */
 .nav-links {
   display: flex;
   list-style: none;
@@ -71,23 +68,25 @@
 
 .nav-links a {
   text-decoration: none;
-  color: var(--gray-700);
-  font-weight: 500;
+  background-color: var(--white);
+  color: var(--orange);
+  font-weight: 600;
   font-size: 0.9375rem;
   padding: 0.5rem 1.25rem;
   border-radius: 2rem;
   transition: all 0.2s ease;
   white-space: nowrap;
+  box-shadow: 4px 6px 5px rgba(0, 0, 0, 0.25);
 
   &:hover {
-    color: var(--gray-900);
-    background-color: color-mix(in srgb, var(--gray-900) 5%, transparent);
+    color: var(--white);
+    background-color: var(--dark-orange);
   }
 
   &.active {
-    color: var(--bright-blue);
-    background-color: color-mix(in srgb, var(--bright-blue) 10%, transparent);
-    font-weight: 600;
+    color: var(--white);
+    background-color: var(--darker-orange);
+    font-weight: 700;
   }
 }
 
