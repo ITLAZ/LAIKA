@@ -26,12 +26,22 @@
     padding: 2rem 4rem;
     border-radius: 1rem;
     backdrop-filter: blur(4px);
+
+    /* FIX: Hero Overlay Overflow on Responsive */
+    @media (max-width: 768px) {
+      width: 90%;
+      padding: 2rem 1.5rem;
+    }
     
     h1 {
-      color: #fff;
+      color: var(--white, #fff);
       margin: 0;
       text-transform: uppercase;
       letter-spacing: 0.1em;
+      
+      @media (max-width: 768px) {
+        font-size: 2rem; /* Optional: Scale down text slightly */
+      }
     }
   }
 }
@@ -149,11 +159,6 @@
     flex-direction: row-reverse;
   }
 
-  /* THE TAIL FIX:
-     Creates a solid block of color below the card.
-     This ensures that when a card slides up (especially the last one),
-     there is no white/empty space revealed underneath it.
-  */
   &::after {
     content: '';
     position: absolute;
@@ -199,6 +204,13 @@
     object-fit: cover;
     display: block;
   }
+  
+  /* Fix for Mobile Overflow */
+  @media (max-width: 768px) {
+    width: 100%; /* Force full width */
+    min-height: 250px; /* Smaller height for mobile */
+    border-radius: 2rem 2rem 0 0 !important; /* Always top rounded */
+  }
 }
 
 .card-content {
@@ -237,20 +249,18 @@
   .btn-text {
     font-size: 1.25rem;
     font-weight: 700;
-    color: #ffffff;
     text-decoration: none;
     text-transform: uppercase;
     letter-spacing: 0.1em;
     padding: 1rem 2.5rem;
-    border: 2px solid #ffffff;
-    background-color: rgba(255, 255, 255, 0.1);
+    border: 2px solid var(--white);
+    background-color: var(--white);
     backdrop-filter: blur(4px);
     border-radius: 99px;
     transition: all 0.3s ease;
     
     &:hover {
-      background-color: #ffffff;
-      color: var(--gray-900);
+      background-color: var(--white);
       transform: scale(1.05);
       box-shadow: 0 10px 20px rgba(0,0,0,0.2);
     }

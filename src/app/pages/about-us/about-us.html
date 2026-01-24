@@ -2,7 +2,7 @@
   
   <section class="hero-section">
     <div class="hero-overlay">
-      <h1>We Are Laika</h1>
+      <h1>Sobre Nosotros</h1>
     </div>
     <img ngSrc="https://placehold.co/1920x1080/gray/white?text=Hero+Image" fill priority alt="Laika Hero" class="hero-bg" />
   </section>
@@ -22,11 +22,9 @@
       </div>
 
       <div class="split-text">
-        <h2>About Laika</h2>
+        <h2>Sobre Laika</h2>
         <p>
-          Laika is more than just a shelter; it is a community dedicated to the well-being of animals. 
-          Founded with the belief that every life is precious, we work tirelessly to rescue, rehabilitate, 
-          and rehome stray and abandoned pets.
+          Laika es un centro de rescate animal nacido el 19 de enero de 2018 en La Paz. Somos una organización ciudadana que  trabaja de manera integral en la protección del bienestar animal: rescatamos, rehabilitamos y  promovemos adopciones responsables; organizamos campañas de salud y esterilización;  desarrollamos programas educativos; y asesoramos en políticas públicas y defensa legal vinculadas al  bienestar animal.  
         </p>
       </div>
     </div>
@@ -35,12 +33,12 @@
   <section class="section-text mission-vision" #sectionTwo>
     <div class="text-container">
       <div class="mv-block">
-        <h3>Our Mission</h3>
-        <p>To end animal homelessness and suffering through rescue, rehabilitation, and education.</p>
+        <h3>Misión</h3>
+        <p>Proteger a los animales y promover sus derechos a través de un enfoque integral que combina rescate y rehabilitación, campañas de esterilización (gratuitas y con costo solidario), programas de educación y concienciación, y la promoción de políticas públicas que garanticen su bienestar.</p>
       </div>
       <div class="mv-block">
-        <h3>Our Vision</h3>
-        <p>A society where compassion for animals is a core value and responsible guardianship is the norm.</p>
+        <h3>Visión</h3>
+        <p>Una sociedad empática y responsable donde los animales sean respetados como seres sintientes, libres  de maltrato y abandono, viviendo en armonía con las personas y el medio ambiente.</p>
       </div>
     </div>
   </section>
@@ -58,7 +56,7 @@
         <div class="card-content">
           <h3>{{ card.title }}</h3>
           <p>{{ card.description }}</p>
-          <a [routerLink]="card.link" class="btn-text">{{ card.linkText }} →</a>
+          <a [routerLink]="card.link" class="btn-text" [style.color]="card.color">{{ card.linkText }} →</a>
         </div>
       </div>
     }

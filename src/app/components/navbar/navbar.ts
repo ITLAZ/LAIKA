@@ -12,11 +12,11 @@ export class Navbar {
   isMenuOpen = signal(false);
 
   menuItems = [
-    { label: 'About Us', path: '/about-us' },
-    { label: 'Donations', path: '/donations' },
-    { label: 'Volunteer', path: '/volunteer' },
-    { label: 'Adopt', path: '/adopt' },
-    { label: 'Contact Us', path: null, action: 'contact' },
+    { label: 'Inicio', path: '/about-us' },
+    { label: 'Donaciones', path: '/donations' },
+    { label: 'Voluntarios', path: '/volunteer' },
+    { label: 'Adopciones', path: '/adopt' },
+    { label: 'Contáctanos', path: null, action: 'contact' },
   ];
 
   toggleMenu() {

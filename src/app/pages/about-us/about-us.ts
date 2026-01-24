@@ -28,27 +28,27 @@ export class AboutUs implements OnDestroy {
   // (Existing cards array and GSAP logic remain unchanged below...)
   cards = [
     {
-      title: 'Donations',
-      description: 'Your generous contributions help us provide food, shelter, and medical care.',
+      title: 'Donaciones',
+      description: 'Transforma tu apoyo en una realidad tangible donando hoy para asegurar el bienestar de los animales del centro.',
       image: 'https://placehold.co/1200x800/17A67D/white?text=Donations',
       link: '/donations',
-      linkText: 'Support Us',
+      linkText: 'Conoce más',
       color: 'var(--green)' 
     },
     {
-      title: 'Volunteer',
-      description: 'Join our team of dedicated volunteers. Your time can make a world of difference.',
+      title: 'Voluntarios',
+      description: 'Únete a nuestro equipo de voluntarios y sé parte activa del cambio.',
       image: 'https://placehold.co/1200x800/0D6BA5/white?text=Volunteer',
       link: '/volunteer',
-      linkText: 'Get Involved',
+      linkText: 'Inscríbete',
       color: 'var(--blue)' 
     },
     {
-      title: 'Adoptions',
-      description: 'Find your new best friend. We have dozens of loving animals waiting for a forever home.',
+      title: 'Adopciones',
+      description: 'Te invitamos a conocer nuestro proceso para encontrar un compañero leal de manera responsable.',
       image: 'https://placehold.co/1200x800/F22148/white?text=Adoptions',
       link: '/adopt',
-      linkText: 'Meet Them',
+      linkText: 'Ver más',
       color: 'var(--red)' 
     },
   ];
