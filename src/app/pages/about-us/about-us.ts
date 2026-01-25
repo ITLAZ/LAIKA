@@ -3,14 +3,12 @@ import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
-
-// Import the Carrusel Component
-import { Carrusel } from '../../components/carrusel/carrusel'; 
+import { Carrusel } from '../../components/carrusel/carrusel';
 
 @Component({
   selector: 'app-about-us',
   standalone: true,
-  imports: [CommonModule, NgOptimizedImage, RouterLink, Carrusel], // Add to imports
+  imports: [CommonModule, NgOptimizedImage, RouterLink, Carrusel],
   templateUrl: './about-us.html',
   styleUrl: './about-us.scss',
 })
@@ -18,14 +16,12 @@ export class AboutUs implements OnDestroy {
   sectionTwo = viewChild<ElementRef>('sectionTwo');
   private ctx: gsap.Context | undefined;
 
-  // Images for the About Laika section
   aboutLaikaImages = [
     'https://placehold.co/800x800/e0e0e0/333?text=Laika+1',
     'https://placehold.co/800x800/e0e0e0/333?text=Laika+2',
     'https://placehold.co/800x800/e0e0e0/333?text=Laika+3'
   ];
 
-  // (Existing cards array and GSAP logic remain unchanged below...)
   cards = [
     {
       title: 'Donaciones',
@@ -67,8 +63,10 @@ export class AboutUs implements OnDestroy {
           gsap.to(navbar, {
             scrollTrigger: {
               trigger: section2El,
-              start: 'top bottom', 
-              end: 'top center',
+              // FIX: Start fading only when the section hits the CENTER of the viewport.
+              // This ensures it is NOT triggered at scroll 0 (since Hero is 80vh).
+              start: 'top center', 
+              end: 'top top',
               scrub: true, 
               markers: false, 
             },

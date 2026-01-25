@@ -12,10 +12,10 @@ export class Footer {
   currentYear = signal(new Date().getFullYear());
   
   links = [
-    { label: 'About Us', path: '/about-us' },
-    { label: 'Adopt', path: '/adopt' },
-    { label: 'Donations', path: '/donations' },
-    { label: 'Volunteer', path: '/volunteer' },
+    { label: 'Inicio', path: '/about-us' },
+    { label: 'Donaciones', path: '/donations' },
+    { label: 'Voluntarios', path: '/volunteer' },
+    { label: 'Adopciones', path: '/adopt' },
   ];
 
   socialLinks = [
