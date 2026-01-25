@@ -11,6 +11,7 @@
     @for (img of images(); track $index) {
       <div 
         class="carrusel-item" 
+        [class.single-col]="actualVisibleItems() === 1"
         [style.flex-basis]="(100 / actualVisibleItems()) + '%'">
         
         <div class="image-wrapper">

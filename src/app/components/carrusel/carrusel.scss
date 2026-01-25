@@ -25,12 +25,13 @@
   height: 100%;
   box-sizing: border-box; 
   
-  /* SPACER: This padding creates the visual gap between items */
+  /* Default: Padding creates gaps between columns */
   padding: 0 0.75rem; 
   
-  /* Ensure the first and last items don't have double padding on edges 
-     if you want them flush, but usually consistent padding is safer for loop logic.
-     For now, 0.75rem on both sides = 1.5rem gap between images. */
+  /* FIX: Remove padding when it's a single column so it hits the edges */
+  &.single-col {
+    padding: 0;
+  }
 }
 
 /* NEW WRAPPER STYLE */
