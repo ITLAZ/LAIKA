@@ -28,7 +28,7 @@
     backdrop-filter: blur(4px);
 
     @media (max-width: 768px) {
-      width: 90%;
+      width: 80%;
       padding: 2rem 1.5rem;
     }
 
@@ -37,6 +37,7 @@
       margin: 0;
       text-transform: uppercase;
       letter-spacing: 0.1em;
+      text-align: center;
 
       @media (max-width: 768px) {
         font-size: 2rem;
