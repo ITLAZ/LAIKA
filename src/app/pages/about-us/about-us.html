@@ -4,7 +4,7 @@
     <div class="hero-overlay">
       <h1>Sobre Nosotros</h1>
     </div>
-    <img ngSrc="https://placehold.co/1920x1080/gray/white?text=Hero+Image" fill priority alt="Laika Hero" class="hero-bg" />
+    <img ngSrc="https://placehold.co/1920x1080/F27040/white?text=Hero+Image" fill priority alt="Laika Hero" class="hero-bg" />
   </section>
 
   <section class="section-split about-laika">
@@ -56,7 +56,7 @@
         <div class="card-content">
           <h3>{{ card.title }}</h3>
           <p>{{ card.description }}</p>
-          <a [routerLink]="card.link" class="btn-text" [style.color]="card.color">{{ card.linkText }} →</a>
+          <a [routerLink]="card.link" class="btn-text{{i}}">{{ card.linkText }}</a>
         </div>
       </div>
     }

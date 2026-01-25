@@ -12,13 +12,17 @@
       <div 
         class="carrusel-item" 
         [style.flex-basis]="(100 / visibleItems()) + '%'">
-        <img 
-          [ngSrc]="img" 
-          fill 
-          [priority]="$index < visibleItems()" 
-          alt="Carousel Image"
-          class="slide-img" 
-        />
+        
+        <div class="image-wrapper">
+          <img 
+            [ngSrc]="img" 
+            fill 
+            [priority]="$index < visibleItems()" 
+            alt="Carousel Image"
+            class="slide-img" 
+          />
+        </div>
+
       </div>
     }
   </div>

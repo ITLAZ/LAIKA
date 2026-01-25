@@ -1,1 +1,120 @@
-<p>adopt works!</p>
+<div class="adopt-container">
+
+    <section class="hero-section" #hero>
+        <div class="hero-overlay">
+            <h1>Adopciones</h1>
+        </div>
+        <img ngSrc="https://placehold.co/1920x1080/F22148/white?text=Adopt+Me" fill priority alt="Adopt Hero"
+            class="hero-bg" />
+    </section>
+
+    <section class="vertical-section">
+        <div class="content-container">
+
+            <div class="intro-text">
+                <p>
+                    Adoptar es un acto de corresponsabilidad que nos define como sociedad. Al abrir tu hogar,
+                    transformas una historia de abandono en una de lealtad y alegría. En Laika, protegemos cada nueva
+                    oportunidad mediante requisitos esenciales de seguridad; no son obstáculos, sino la garantía de que
+                    nuestros rescatados nunca volverán a estar en riesgo. Buscamos hogares donde el compromiso sea mutuo
+                    y seguro.
+                </p>
+            </div>
+
+            <div class="carousel-wrapper">
+                <app-carrusel [images]="adoptablePets" [visibleItems]="3" height="100%" [autoPlay]="true"
+                    [autoPlayInterval]="4000">
+                </app-carrusel>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2>¡Abre tu corazón a un rescatado, anímate a cambiar una vida y ganar un amor para siempre! </h2>
+        </div>
+    </section>
+
+    <section class="requisites-section">
+        <div class="requisites-card">
+
+            <div class="card-header">
+                <h3>Requisitos de Adopción</h3>
+            </div>
+
+            <div class="card-body">
+
+                <div class="requisites-col">
+                    <ul class="requisites-list">
+                        @for (req of requisites; track $index) {
+                        <li>
+                            <i class="far fa-circle-check"></i>
+                            <span>{{ req }}</span>
+                        </li>
+                        }
+                    </ul>
+
+                    <div class="requisites-logo">
+                        <img ngSrc="/images/Logo.png" alt="Laika Logo" height="275" width="255" priority />
+                    </div>
+                </div>
+
+                <div class="contract-col">
+
+                    <div class="contract-grid">
+
+                        <div class="contract-block">
+                            <h4>Contrato de adopción responsable</h4>
+                            <p class="intro">En el mismo Usted se compromete a:</p>
+                            <ul>
+                                <li>Dar un hogar adecuado, a la mascota, con el espacio que requiere, incluyendo la
+                                    alimentación y cuidados veterinarios.</li>
+                                <li>Comprometerse a no dejar en la calle nunca a la mascota, salvo en los paseos en cuyo
+                                    caso deberá sacarla a pasear con collar y correa siempre.</li>
+                                <li>Se compromete a permitir el acceso a su domicilio a voluntario de Laika para que
+                                    podamos hacer el seguimiento del estado de la mascota.</li>
+                                <li>En caso de ser menor a 6 meses la mascota se compromete a esterilizar o castrar
+                                    debiendo coordinar la misma con Laika, así mismo a colocar todas las vacunas.</li>
+                            </ul>
+                        </div>
+
+                        <div class="contract-block">
+                            <h4>A tener en cuenta</h4>
+                            <p class="intro">Responsabilidades importantes:</p>
+                            <ul>
+                                <li>La Mascota requiere un hogar donde sea cuidada, protegida y amada.</li>
+                                <li>La Mascota requiere alimentación especial, las mascotas NO pueden comer nuestra
+                                    comida o sobras.</li>
+                                <li>La Mascota requiere tiempo para su cuidado, juego, actividades físicas y atención
+                                    veterinaria.</li>
+                                <li>La Mascota requiere presupuesto mensual para su alimentación y cuidados.</li>
+                                <li>La Mascota requiere control veterinario al menos 2 veces al año y vacunas anuales.
+                                </li>
+                                <li>La Mascota no es un sistema de seguridad. Si quiere proteger su propiedad use una
+                                    alarma.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="contract-footer-note">
+                        <p>Cualquier consulta, emergencia o novedad de la mascota, el Centro de rescate animal Laika
+                            está para ayudar, no dude en comunicarse con el <a
+                                href="https://api.whatsapp.com/send?phone=59176708785">76708785</a>.</p>
+                        <p class="highlight">Si está de acuerdo y desea adoptar por favor llene el formulario.</p>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="card-footer">
+                <a href="https://forms.gle/cpVARPtsYe2MhqTZ8" target="_blank" rel="noopener noreferrer"
+                    class="btn-primary">
+                    Formulario
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+</div>

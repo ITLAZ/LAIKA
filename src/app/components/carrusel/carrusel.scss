@@ -1,7 +1,7 @@
 :host {
   display: block;
   width: 100%;
-  height: 100%; /* <--- CRITICAL FIX */
+  height: 100%;
 }
 
 .carrusel-container {
@@ -9,9 +9,8 @@
   overflow: hidden;
   border-radius: 1.5rem;
   width: 100%;
-  /* Ensure this inherits the host's height, which inherits the wrapper's height */
   height: 100% !important; 
-  background-color: #f0f0f0;
+  background-color: transparent;
 }
 
 .carrusel-track {
@@ -22,14 +21,29 @@
 }
 
 .carrusel-item {
-  position: relative; /* Required for NgOptimizedImage fill mode */
   flex-shrink: 0;
   height: 100%;
+  box-sizing: border-box; 
+  
+  /* SPACER: This padding creates the visual gap between items */
+  padding: 0 0.75rem; 
+  
+  /* Ensure the first and last items don't have double padding on edges 
+     if you want them flush, but usually consistent padding is safer for loop logic.
+     For now, 0.75rem on both sides = 1.5rem gap between images. */
+}
+
+/* NEW WRAPPER STYLE */
+.image-wrapper {
+  position: relative; /* Context for absolute image */
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 1rem; /* Rounded corners applied here */
   
   .slide-img {
     object-fit: cover;
-    width: 100%;
-    height: 100%;
+    /* Dimensions handled by ngSrc fill, but strictly ensuring it here doesn't hurt */
   }
 }
 

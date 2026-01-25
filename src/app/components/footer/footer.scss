@@ -57,6 +57,7 @@ h3 {
   align-items: center;
   justify-content: center;
   background-color: var(--white);
+  border: 5px solid var(--dark-orange);
   padding: 1rem;
   border-radius:2rem;
 }
@@ -167,7 +168,7 @@ h3 {
   border-radius: 1rem;
   overflow: hidden;
   background-color: #333;
-  border: 2px solid var(--white);
+  border: 5px solid var(--dark-orange);
 }
 
 /* --- Copyright --- */

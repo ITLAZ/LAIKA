@@ -181,8 +181,8 @@
     border: 5px solid transparent;
 
     &:hover {
-      border: 5px solid var(--blue);
-      color: var(--blue);
+      border: 5px solid var(--dark-green);
+      color: var(--dark-green);
       transform: translateY(-5px);
       box-shadow: 0 15px 30px rgba(4, 31, 47, 0.65);
     }

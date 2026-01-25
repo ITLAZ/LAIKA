@@ -1,0 +1,298 @@
+/* Global Layout */
+.adopt-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+/* --- 1. Hero Section --- */
+.hero-section {
+  position: relative;
+  height: 65vh;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .hero-bg {
+    object-fit: cover;
+    z-index: -1;
+  }
+
+  .hero-overlay {
+    background: rgba(0, 0, 0, 0.4);
+    padding: 2rem 4rem;
+    border-radius: 1rem;
+    backdrop-filter: blur(4px);
+
+    @media (max-width: 768px) {
+      width: 90%;
+      padding: 2rem 1.5rem;
+    }
+
+    h1 {
+      color: var(--white, #fff);
+      margin: 0;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+
+      @media (max-width: 768px) {
+        font-size: 2rem;
+      }
+    }
+  }
+}
+
+/* --- 2. Vertical Section (Text + Carousel) --- */
+.vertical-section {
+  padding: 6rem 2rem;
+  background-color: var(--white);
+  text-align: center;
+
+  .content-container {
+    max-width: 1600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+  }
+
+  .intro-text {
+    max-width: 1600px;
+    margin: 0 auto;
+
+    p {
+      font-size: 1.25rem;
+      color: var(--red);
+      line-height: 1.6;
+    }
+  }
+
+  /* Carousel Wrapper */
+  .carousel-wrapper {
+    width: 100%;
+    /* Fixed height for the strip of 3 images */
+    height: 500px;
+    position: relative;
+    border-radius: 1.5rem;
+    overflow: hidden;
+
+    @media (max-width: 768px) {
+      height: 350px; /* Smaller height on mobile */
+    }
+  }
+}
+
+/* --- 3. CTA Section (Text Only) --- */
+.cta-section {
+  padding: 6rem 2rem;
+  background-color: var(--white);
+  text-align: center;
+  color: var(--red);
+
+  .cta-content {
+    max-width: 1300px;
+    margin: 0 auto;
+
+    h2 {
+      font-size: 3rem;
+      margin-bottom: 2rem;
+    }
+  }
+}
+
+/* --- 4. Requisites Card --- */
+.requisites-section {
+  padding: 4rem 2rem;
+  background-color: var(--white);
+  display: flex;
+  justify-content: center;
+}
+
+.requisites-card {
+  background-color: var(--red);
+  padding: 3rem;
+  border-radius: 2rem;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+
+  /* FULL WIDTH */
+  width: 100%;
+  max-width: 1600px; /* Limits slightly on huge screens but effectively full width */
+
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  @media (max-width: 768px) {
+    padding: 1.5rem;
+  }
+
+  .card-header {
+    text-align: left;
+    border-bottom: 2px solid var(--white);
+    padding-bottom: 1.5rem;
+
+    h3 {
+      font-size: 2.5rem;
+      color: var(--white);
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  /* MAIN LAYOUT: Requisites (Left) | Contract (Right) */
+  .card-body {
+    display: grid;
+    grid-template-columns: 1fr 2.5fr; /* Contract gets more space */
+    gap: 4rem;
+    align-items: start;
+
+    @media (max-width: 1200px) {
+      grid-template-columns: 1fr; /* Stack on tablet/mobile */
+      gap: 2rem;
+    }
+  }
+
+  /* --- LEFT COL: REQUISITES --- */
+  .requisites-col {
+    .requisites-list {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+
+      li {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        font-size: 1.1rem;
+        line-height: 1.4;
+        color: var(--white);
+
+        .fa-circle-check {
+          color: var(--white);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-shrink: 0;
+        }
+      }
+    }
+
+    .requisites-logo {
+      margin-top: 2rem; /* Pushes box to the bottom of the column */
+      padding: 2rem;
+      background-color: var(--white); /* Visible light gray background */
+      border: 5px solid var(--dark-red);
+      border-radius: 1.5rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      img {
+        display: block;
+        /* Ensure image doesn't overflow */
+        max-width: 100%;
+        height: auto;
+      }
+    }
+  }
+
+  /* --- RIGHT COL: CONTRACT --- */
+  .contract-col {
+    background-color: var(--white);
+    border: 5px solid var(--dark-red);
+    border-radius: 1.5rem;
+    padding: 2rem;
+
+    /* INTERNAL GRID: Part 1 | Part 2 */
+    .contract-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-bottom: 2rem;
+
+      @media (max-width: 900px) {
+        grid-template-columns: 1fr; /* Stack contract parts on smaller screens */
+      }
+    }
+
+    .contract-block {
+      h4 {
+        color: var(--dark-red);
+        font-size: 1.25rem;
+        margin-bottom: 1rem;
+        border-bottom: 2px solid var(--dark-red);
+        padding-bottom: 0.5rem;
+        display: inline-block;
+      }
+
+      .intro {
+        font-weight: 600;
+        margin-bottom: 0.75rem;
+        color: var(--dark-red);
+      }
+
+      ul {
+        padding-left: 1.25rem;
+        li {
+          margin-bottom: 0.5rem;
+          font-size: 0.95rem;
+          color: var(--dark-red);
+          line-height: 1.5;
+        }
+      }
+    }
+
+    .contract-footer-note {
+      border-top: 2px dashed var(--dark-red);
+      padding-top: 1.5rem;
+      font-size: 1rem;
+      color: var(--dark-red);
+
+      a {
+        color: var(--red);
+        font-weight: 700;
+        text-decoration: underline;
+      }
+
+      .highlight {
+        color: var(--dark-red);
+        text-transform: uppercase;
+        text-align: center;
+        font-weight: 800;
+        margin-top: 2rem;
+      }
+    }
+  }
+
+  /* --- FOOTER: Button Bottom Right --- */
+  .card-footer {
+    display: flex;
+    justify-content: flex-end; /* Pushes button to right */
+    padding-top: 1rem;
+
+    .btn-primary {
+      background-color: var(--white);
+      color: var(--red);
+      font-size: 1.2rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      padding: 1rem 2.5rem;
+      border-radius: 99px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      border: 5px solid transparent;
+      box-shadow: 4px 6px 5px rgba(0, 0, 0, 0.4);
+
+      &:hover {
+        border-color: var(--dark-red);
+        color: var(--dark-red);
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      }
+    }
+  }
+}
