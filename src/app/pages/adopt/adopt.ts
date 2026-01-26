@@ -8,7 +8,7 @@ import { Carrusel } from '../../components/carrusel/carrusel';
 @Component({
   selector: 'app-adopt',
   standalone: true,
-  imports: [CommonModule, NgOptimizedImage, RouterLink, Carrusel],
+  imports: [CommonModule, NgOptimizedImage, Carrusel],
   templateUrl: './adopt.html',
   styleUrl: './adopt.scss',
 })

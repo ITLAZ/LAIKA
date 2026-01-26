@@ -19,6 +19,8 @@ export class Carrusel implements OnDestroy {
   // State
   currentIndex = signal(0);
   isMobile = signal(false); // Tracks mobile state
+  // Captures the visible items count at initial render so `priority` remains stable
+  initialVisibleItems = signal<number>(1);
 
   // Computed: Forces 1 column on mobile, otherwise uses input
   actualVisibleItems = computed(() => this.isMobile() ? 1 : this.visibleItems());
@@ -43,17 +45,20 @@ export class Carrusel implements OnDestroy {
 
     // Safety: Clamp index when resizing (e.g., switching from 1 col -> 3 cols)
     // If we are at index 5 on mobile, but desktop max is 3, we must jump back to 3.
+    // The `allowSignalWrites` option is deprecated; writes are always allowed now.
     effect(() => {
       const current = this.currentIndex();
       const max = this.maxIndex();
       if (current > max) {
         this.currentIndex.set(max);
       }
-    }, { allowSignalWrites: true });
+    });
 
     // Detect Screen Size (Browser Only)
     afterNextRender(() => {
       this.checkMobile();
+      // Set the initial visible items once after first render so `priority` doesn't change
+      this.initialVisibleItems.set(this.actualVisibleItems());
       this.resizeListener = () => this.checkMobile();
       window.addEventListener('resize', this.resizeListener);
     });
