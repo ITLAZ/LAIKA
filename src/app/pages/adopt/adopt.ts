@@ -18,12 +18,12 @@ export class Adopt implements OnDestroy {
 
   // Images for the Carousel
   adoptablePets = [
-    'https://placehold.co/600x800/e0e0e0/333?text=Max',
-    'https://placehold.co/600x800/e0e0e0/333?text=Luna',
-    'https://placehold.co/600x800/e0e0e0/333?text=Bella',
-    'https://placehold.co/600x800/e0e0e0/333?text=Charlie',
-    'https://placehold.co/600x800/e0e0e0/333?text=Lucy',
-    'https://placehold.co/600x800/e0e0e0/333?text=Cooper',
+    '/images/adopt/adopta-1.png',
+    '/images/adopt/adopta-2.png',
+    '/images/adopt/adopta-3.png',
+    '/images/adopt/adopta-4.png',
+    '/images/adopt/adopta-5.png',
+    '/images/adopt/adopta-6.png',
   ];
 
   requisites = [

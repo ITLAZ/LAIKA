@@ -17,16 +17,16 @@ export class AboutUs implements OnDestroy {
   private ctx: gsap.Context | undefined;
 
   aboutLaikaImages = [
-    'https://placehold.co/800x800/e0e0e0/333?text=Laika+1',
-    'https://placehold.co/800x800/e0e0e0/333?text=Laika+2',
-    'https://placehold.co/800x800/e0e0e0/333?text=Laika+3'
+    '/images/about-us/carrusel-1.png',
+    '/images/about-us/carrusel-2.png',
+    '/images/about-us/carrusel-3.png',
   ];
 
   cards = [
     {
       title: 'Donaciones',
       description: 'Transforma tu apoyo en una realidad tangible donando hoy para asegurar el bienestar de los animales del centro.',
-      image: 'https://placehold.co/1200x800/17A67D/white?text=Donations',
+      image: '/images/about-us/donaciones.png',
       link: '/donations',
       linkText: 'Conoce más',
       color: 'var(--green)' 
@@ -34,7 +34,7 @@ export class AboutUs implements OnDestroy {
     {
       title: 'Voluntarios',
       description: 'Únete a nuestro equipo de voluntarios y sé parte activa del cambio.',
-      image: 'https://placehold.co/1200x800/0D6BA5/white?text=Volunteer',
+      image: '/images/about-us/voluntarios.png',
       link: '/volunteer',
       linkText: 'Inscríbete',
       color: 'var(--blue)' 
@@ -42,7 +42,7 @@ export class AboutUs implements OnDestroy {
     {
       title: 'Adopciones',
       description: 'Te invitamos a conocer nuestro proceso para encontrar un compañero leal de manera responsable.',
-      image: 'https://placehold.co/1200x800/F22148/white?text=Adoptions',
+      image: '/images/about-us/adopciones.png',
       link: '/adopt',
       linkText: 'Ver más',
       color: 'var(--red)' 

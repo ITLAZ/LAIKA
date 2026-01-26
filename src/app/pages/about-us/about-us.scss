@@ -22,26 +22,35 @@
   }
 
   .hero-overlay {
-    background: rgba(0, 0, 0, 0.4);
-    padding: 2rem 4rem;
-    border-radius: 1rem;
-    backdrop-filter: blur(4px);
-
-    /* FIX: Hero Overlay Overflow on Responsive */
-    @media (max-width: 768px) {
-      width: 80%;
-      padding: 2rem 1.5rem;
-    }
+    /* --- DESKTOP STATE (Default) --- */
+    /* Remove the "Box" look */
+    background: transparent;
+    padding: 0;
+    backdrop-filter: none;
+    border-radius: 0;
     
+    /* Center the text in the hero */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* --- MOBILE STATE (Responsive) --- */
+    @media (max-width: 768px) {
+      padding: 2rem 1.5rem;
+      border-radius: 1rem;
+      width: 80%; /* Constrain width on mobile */
+    }
+
     h1 {
       color: var(--white, #fff);
       margin: 0;
       text-transform: uppercase;
       letter-spacing: 0.1em;
-      text-align: center;
-      
+
       @media (max-width: 768px) {
-        font-size: 2rem; /* Optional: Scale down text slightly */
+        font-size: 2rem;
+        /* Optional: Remove shadow inside the box if you prefer cleaner text there */
+        text-shadow: none; 
       }
     }
   }
