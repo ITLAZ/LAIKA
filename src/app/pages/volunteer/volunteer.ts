@@ -7,7 +7,7 @@ import ScrollTrigger from 'gsap/ScrollTrigger';
 @Component({
   selector: 'app-volunteer',
   standalone: true,
-  imports: [CommonModule, NgOptimizedImage, RouterLink],
+  imports: [CommonModule, NgOptimizedImage],
   templateUrl: './volunteer.html',
   styleUrl: './volunteer.scss',
 })

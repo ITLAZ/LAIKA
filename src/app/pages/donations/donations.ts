@@ -7,7 +7,7 @@ import ScrollTrigger from 'gsap/ScrollTrigger';
 @Component({
   selector: 'app-donations',
   standalone: true,
-  imports: [CommonModule, NgOptimizedImage, RouterLink],
+  imports: [CommonModule, NgOptimizedImage],
   templateUrl: './donations.html',
   styleUrl: './donations.scss',
 })

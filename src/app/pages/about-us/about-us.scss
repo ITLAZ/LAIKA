@@ -23,19 +23,14 @@
 
   .hero-overlay {
     /* --- DESKTOP STATE (Default) --- */
-    /* Remove the "Box" look */
-    background: transparent;
-    padding: 0;
-    backdrop-filter: none;
-    border-radius: 0;
-    
-    /* Center the text in the hero */
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: none;
 
     /* --- MOBILE STATE (Responsive) --- */
     @media (max-width: 768px) {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
       padding: 2rem 1.5rem;
       border-radius: 1rem;
       width: 80%; /* Constrain width on mobile */
